@@ -1,0 +1,6 @@
+{
+  "name": "To do list master",
+  "description": "A modern, high-performance todo application with glassmorphism UI, real-time cloud sync, voice input, and productivity tools like Pomodoro and Calendar views.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": []
+}

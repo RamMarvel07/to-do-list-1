@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "Task": {
+      "title": "Task",
+      "description": "A productivity task in the user's checklist.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The name of the task." },
+        "description": { "type": "string", "description": "Detailed notes about the task." },
+        "completed": { "type": "boolean", "description": "Whether the task is finished." },
+        "category": { "type": "string", "description": "The tag for the task (Work, Personal, etc.)" },
+        "priority": { "type": "string", "enum": ["Low", "Medium", "High"], "description": "The importance level." },
+        "dueDate": { "type": "string", "format": "date-time", "description": "When the task is due." },
+        "order": { "type": "number", "description": "Display order for reordering." },
+        "userId": { "type": "string", "description": "The owner of the task." },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["title", "userId", "createdAt", "updatedAt"]
+    },
+    "UserProfile": {
+      "title": "User Profile",
+      "description": "Public profile information for a user.",
+      "type": "object",
+      "properties": {
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "email": { "type": "string" }
+      }
+    }
+  },
+  "firestore": {
+    "tasks/{taskId}": {
+      "schema": "Task",
+      "description": "Collection of tasks."
+    },
+    "users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User profile data."
+    }
+  }
+}
